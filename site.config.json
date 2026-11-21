@@ -1,0 +1,13 @@
+{
+  "siteUrl": "",
+  "appUrl": "https://magpie-ingest.atoma.one",
+  "languages": ["zh-CN", "en"],
+  "defaultLanguage": "en",
+  "links": {
+    "repo": "https://github.com/zhiyue/magpie-ingest",
+    "deployGuide": "https://github.com/zhiyue/magpie-ingest/blob/main/docs/deploy-and-migrate.md",
+    "adminGuide": "https://github.com/zhiyue/magpie-ingest/blob/main/docs/admin-guide.md",
+    "apiGuide": "https://github.com/zhiyue/magpie-ingest/blob/main/docs/api.md",
+    "connectGuide": "https://github.com/zhiyue/magpie-local-agent/blob/main/docs/connect-daemon.md"
+  }
+}

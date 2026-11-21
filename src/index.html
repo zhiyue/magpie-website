@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="{{@lang}}" {{@pages}}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>{{site.title}}</title>
+    <meta name="description" content="{{site.description}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Magpie" />
+    <meta property="og:title" content="{{site.title}}" />
+    <meta property="og:description" content="{{site.description}}" />
+    {{@seo}}
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2317181c'/%3E%3Cpath d='M6 23 13 8l5 10 8-7-5 14H8Z' fill='%23fff'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="{{@asset.site.css}}" />
+    <script src="{{@asset.site.js}}"></script>
+  </head>
+  <body class="site">
+    <a class="skip" href="#main">{{site.skip}}</a>
+    <header class="site-header">
+      <div class="site-bar">
+        <a class="brand" href="{{@home}}" aria-label="{{common.home}}"
+          ><span class="brand-mark"
+            ><svg viewBox="0 0 32 32" aria-hidden="true">
+              <path
+                d="M6 23 13 8l5 10 8-7-5 14H8Z"
+                fill="currentColor"
+              /></svg></span
+          ><span>Magpie</span></a
+        >
+        <nav class="site-nav" aria-label="{{site.nav.label}}">
+          <a href="#how">{{site.nav.how}}</a>
+          <a href="#features">{{site.nav.features}}</a>
+          <a href="#security">{{site.nav.trust}}</a>
+          <a href="#self-host">{{site.nav.selfHost}}</a>
+          <a href="#faq">{{site.nav.faq}}</a>
+        </nav>
+        <div class="site-actions">
+          <nav class="lang" aria-label="{{common.language}}">
+            {{@languages}}
+          </nav>
+          <a class="button primary" href="{{@app}}/login"
+            >{{site.nav.signIn}}</a
+          >
+        </div>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div class="site-wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">{{site.hero.eyebrow}}</p>
+            <h1>{{site.hero.title}}</h1>
+            <p class="hero-lead">{{site.hero.lead}}</p>
+            <div class="hero-actions">
+              <a class="button primary large" href="{{@app}}/login"
+                >{{site.hero.primary}}<svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" /></svg
+              ></a>
+              <a class="button large" href="#self-host"
+                >{{site.hero.secondary}}</a
+              >
+            </div>
+            <p class="hero-note">{{site.hero.note}}</p>
+          </div>
+          <div class="mock card" role="img" aria-label="{{site.mock.label}}">
+            <div class="mock-bar"><span></span><span></span><span></span></div>
+            <div class="mock-head">
+              <strong>{{common.inbox}}</strong>
+              <span>{{site.mock.lead}}</span>
+            </div>
+            <div class="mock-chips">
+              <span class="chip active">{{inbox.all}}<b>128</b></span>
+              <span class="chip"
+                ><span class="dot queued"></span>{{inbox.status.queued}}<b
+                  >2</b
+                ></span
+              >
+              <span class="chip"
+                ><span class="dot running"></span>{{inbox.status.running}}<b
+                  >1</b
+                ></span
+              >
+              <span class="chip"
+                ><span class="dot succeeded"></span>{{inbox.status.succeeded}}<b
+                  >119</b
+                ></span
+              >
+            </div>
+            <div class="day">{{inbox.today}}</div>
+            <ul class="items">
+              <li class="row">
+                <div class="row-main">
+                  <span class="row-icon"
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"
+                      />
+                      <path
+                        d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"
+                      /></svg></span
+                  ><span class="row-body"
+                    ><span class="row-title"
+                      >example.com<span class="path"
+                        >/articles/design-tokens</span
+                      ></span
+                    ><span class="row-summary">{{site.mock.summary1}}</span
+                    ><span class="row-meta"
+                      >{{inbox.type.link}} · ios-shortcut · 09:41</span
+                    ></span
+                  ><span class="status succeeded"
+                    >{{inbox.status.succeeded}}</span
+                  >
+                </div>
+              </li>
+              <li class="row">
+                <div class="row-main">
+                  <span class="row-icon"
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"
+                      />
+                      <path
+                        d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"
+                      /></svg></span
+                  ><span class="row-body"
+                    ><span class="row-title"
+                      >news.example.org<span class="path"
+                        >/local-first-sync</span
+                      ></span
+                    ><span class="row-summary is-hint"
+                      >{{inbox.hint.running}}</span
+                    ><span class="row-meta"
+                      >{{inbox.type.link}} · ios-shortcut · 09:12</span
+                    ></span
+                  ><span class="status running">{{inbox.status.running}}</span>
+                </div>
+              </li>
+              <li class="row">
+                <div class="row-main">
+                  <span class="row-icon"
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="3.5" y="4.5" width="17" height="15" rx="2" />
+                      <circle cx="9" cy="10" r="1.5" />
+                      <path d="m4 17 5-4.5 4 3.5 3-2.5 4 3.5" /></svg></span
+                  ><span class="row-body"
+                    ><span class="row-title">{{site.mock.image}}</span
+                    ><span class="row-meta"
+                      >{{inbox.type.image}} · ios-shortcut · 08:30</span
+                    ></span
+                  ><span class="status stored">{{inbox.status.stored}}</span>
+                </div>
+              </li>
+              <li class="row">
+                <div class="row-main">
+                  <span class="row-icon"
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"
+                      />
+                      <path
+                        d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"
+                      /></svg></span
+                  ><span class="row-body"
+                    ><span class="row-title"
+                      >blog.example.net<span class="path"
+                        >/2026/reading-list</span
+                      ></span
+                    ><span class="row-summary is-hint"
+                      >{{inbox.hint.queued}}</span
+                    ><span class="row-meta"
+                      >{{inbox.type.link}} · api · 08:05</span
+                    ></span
+                  ><span class="status queued">{{inbox.status.queued}}</span>
+                </div>
+              </li>
+            </ul>
+            <div class="day">{{inbox.yesterday}}</div>
+            <ul class="items">
+              <li class="row">
+                <div class="row-main">
+                  <span class="row-icon"
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"
+                      />
+                      <path
+                        d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"
+                      /></svg></span
+                  ><span class="row-body"
+                    ><span class="row-title"
+                      >docs.example.dev<span class="path"
+                        >/guides/sync</span
+                      ></span
+                    ><span class="row-summary">{{site.mock.summary2}}</span
+                    ><span class="row-meta"
+                      >{{inbox.type.link}} · ios-shortcut · 21:37</span
+                    ></span
+                  ><span class="status succeeded"
+                    >{{inbox.status.succeeded}}</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="how">
+        <div class="site-wrap">
+          <div class="section-intro">
+            <h2>{{site.how.title}}</h2>
+            <p>{{site.how.lead}}</p>
+          </div>
+          <ol class="steps">
+            <li>
+              <span class="step-icon"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="7" y="3" width="10" height="18" rx="2.5" />
+                  <path d="M11 17.5h2" /></svg></span
+              ><span class="step-number">1</span>
+              <h3>{{site.how.step1.title}}</h3>
+              <p>{{site.how.step1.body}}</p>
+            </li>
+            <li>
+              <span class="step-icon"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M3 13h5l1.5 3h5L16 13h5" />
+                  <path
+                    d="M5.5 5h13L21 13v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-5Z"
+                  /></svg></span
+              ><span class="step-number">2</span>
+              <h3>{{site.how.step2.title}}</h3>
+              <p>{{site.how.step2.body}}</p>
+            </li>
+            <li>
+              <span class="step-icon"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="5" y="5" width="14" height="10" rx="1.5" />
+                  <path d="M3 18.5h18" /></svg></span
+              ><span class="step-number">3</span>
+              <h3>{{site.how.step3.title}}</h3>
+              <p>{{site.how.step3.body}}</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="band" id="features">
+        <div class="site-wrap">
+          <div class="section-intro">
+            <h2>{{site.features.title}}</h2>
+            <p>{{site.features.lead}}</p>
+          </div>
+          <ul class="features">
+            <li class="feature">
+              <span class="tile"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M13 3 5 13.5h6L10 21l8-10.5h-6L13 3Z" /></svg
+              ></span>
+              <h3>{{site.feature.capture.title}}</h3>
+              <p>{{site.feature.capture.body}}</p>
+            </li>
+            <li class="feature">
+              <span class="tile"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="7" y="7" width="10" height="10" rx="2" />
+                  <path
+                    d="M10 3.5V7M14 3.5V7M10 17v3.5M14 17v3.5M3.5 10H7M3.5 14H7M17 10h3.5M17 14h3.5"
+                  /></svg
+              ></span>
+              <h3>{{site.feature.agent.title}}</h3>
+              <p>{{site.feature.agent.body}}</p>
+            </li>
+            <li class="feature">
+              <span class="tile"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3.5 7a2 2 0 0 1 2-2h4l2 2.5h7a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2Z"
+                  />
+                  <path d="m9 14 2 2 4-4.5" /></svg
+              ></span>
+              <h3>{{site.feature.local.title}}</h3>
+              <p>{{site.feature.local.body}}</p>
+            </li>
+            <li class="feature">
+              <span class="tile"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M3 12h4l2.5-6 4 12 2.5-6h5" /></svg
+              ></span>
+              <h3>{{site.feature.status.title}}</h3>
+              <p>{{site.feature.status.body}}</p>
+            </li>
+            <li class="feature">
+              <span class="tile"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="8" cy="15" r="4" />
+                  <path d="m11 12 8.5-8.5M16 7l2.5 2.5M19 4l1.5 1.5" /></svg
+              ></span>
+              <h3>{{site.feature.keys.title}}</h3>
+              <p>{{site.feature.keys.body}}</p>
+            </li>
+            <li class="feature">
+              <span class="tile"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 3v11" />
+                  <path d="m8 10 4 4 4-4" />
+                  <path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" /></svg
+              ></span>
+              <h3>{{site.feature.data.title}}</h3>
+              <p>{{site.feature.data.body}}</p>
+            </li>
+            <li class="feature">
+              <span class="tile"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="9" cy="8.5" r="3" />
+                  <path d="M3.5 19a5.5 5.5 0 0 1 11 0" />
+                  <path
+                    d="M15.5 5.8a3 3 0 0 1 0 5.4M17 14.2a5.5 5.5 0 0 1 3.5 4.8"
+                  /></svg
+              ></span>
+              <h3>{{site.feature.multi.title}}</h3>
+              <p>{{site.feature.multi.body}}</p>
+            </li>
+            <li class="feature">
+              <span class="tile"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 18.5a4 4 0 0 1-.6-7.95A5.5 5.5 0 0 1 17 9.5a4.5 4.5 0 0 1 .5 9Z"
+                  /></svg
+              ></span>
+              <h3>{{site.feature.cloud.title}}</h3>
+              <p>{{site.feature.cloud.body}}</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="band tinted" id="security">
+        <div class="site-wrap trust-grid">
+          <div>
+            <div class="section-intro left">
+              <h2>{{site.trust.title}}</h2>
+              <p>{{site.trust.lead}}</p>
+            </div>
+            <ul class="checks">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                ><span>{{site.trust.point1}}</span>
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                ><span>{{site.trust.point2}}</span>
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                ><span>{{site.trust.point3}}</span>
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                ><span>{{site.trust.point4}}</span>
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                ><span>{{site.trust.point5}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card matrix">
+            <table>
+              <caption>
+                {{site.matrix.caption}}
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">{{site.matrix.action}}</th>
+                  <th scope="col">{{account.keys.level.collect}}</th>
+                  <th scope="col">{{account.keys.level.daemon}}</th>
+                  <th scope="col">{{account.keys.level.full}}</th>
+                  <th scope="col">{{site.matrix.browser}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">{{site.matrix.save}}</th>
+                  <td>
+                    <span class="mark yes"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                      ><span class="sr">{{site.matrix.yes}}</span></span
+                    >
+                  </td>
+                  <td>
+                    <span class="mark no"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M7 12h10" /></svg
+                      ><span class="sr">{{site.matrix.no}}</span></span
+                    >
+                  </td>
+                  <td>
+                    <span class="mark yes"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                      ><span class="sr">{{site.matrix.yes}}</span></span
+                    >
+                  </td>
+                  <td>
+                    <span class="mark yes"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                      ><span class="sr">{{site.matrix.yes}}</span></span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">{{site.matrix.process}}</th>
+                  <td>
+                    <span class="mark no"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M7 12h10" /></svg
+                      ><span class="sr">{{site.matrix.no}}</span></span
+                    >
+                  </td>
+                  <td>
+                    <span class="mark yes"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                      ><span class="sr">{{site.matrix.yes}}</span></span
+                    >
+                  </td>
+                  <td>
+                    <span class="mark yes"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                      ><span class="sr">{{site.matrix.yes}}</span></span
+                    >
+                  </td>
+                  <td>
+                    <span class="mark yes"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                      ><span class="sr">{{site.matrix.yes}}</span></span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">{{site.matrix.read}}</th>
+                  <td>
+                    <span class="mark no"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M7 12h10" /></svg
+                      ><span class="sr">{{site.matrix.no}}</span></span
+                    >
+                  </td>
+                  <td>
+                    <span class="mark no"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M7 12h10" /></svg
+                      ><span class="sr">{{site.matrix.no}}</span></span
+                    >
+                  </td>
+                  <td>
+                    <span class="mark yes"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                      ><span class="sr">{{site.matrix.yes}}</span></span
+                    >
+                  </td>
+                  <td>
+                    <span class="mark yes"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                      ><span class="sr">{{site.matrix.yes}}</span></span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">{{site.matrix.manage}}</th>
+                  <td>
+                    <span class="mark no"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M7 12h10" /></svg
+                      ><span class="sr">{{site.matrix.no}}</span></span
+                    >
+                  </td>
+                  <td>
+                    <span class="mark no"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M7 12h10" /></svg
+                      ><span class="sr">{{site.matrix.no}}</span></span
+                    >
+                  </td>
+                  <td>
+                    <span class="mark no"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M7 12h10" /></svg
+                      ><span class="sr">{{site.matrix.no}}</span></span
+                    >
+                  </td>
+                  <td>
+                    <span class="mark yes"
+                      ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="m5 12.5 4.5 4.5L19 7.5" /></svg
+                      ><span class="sr">{{site.matrix.yes}}</span></span
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="self-host">
+        <div class="site-wrap">
+          <div class="section-intro">
+            <h2>{{site.selfHost.title}}</h2>
+            <p>{{site.selfHost.lead}}</p>
+          </div>
+          <ol class="recipes">
+            <li class="card">
+              <h3><span class="step-number">1</span>{{site.selfHost.step1}}</h3>
+              <pre
+                class="command"
+              ><span class="comment">{{site.selfHost.code1a}}</span>
+npm ci
+npx wrangler d1 create magpie-ingest
+npx wrangler r2 bucket create magpie-ingest-private
+npm run db:migrations:apply
+npm run deploy</pre>
+            </li>
+            <li class="card">
+              <h3><span class="step-number">2</span>{{site.selfHost.step2}}</h3>
+              <pre
+                class="command"
+              ><span class="comment">{{site.selfHost.code2a}}</span>
+npm ci
+npm run connect -- --vault /path/to/your/vault
+npm run watch</pre>
+            </li>
+            <li class="card">
+              <h3><span class="step-number">3</span>{{site.selfHost.step3}}</h3>
+              <pre
+                class="command"
+              ><span class="comment">{{site.selfHost.code3a}}</span>
+curl -X POST https://magpie.example.com/ingest \
+  -H "Authorization: Bearer $MAGPIE_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"text": "https://example.com/article"}'</pre>
+            </li>
+          </ol>
+          <div class="center-actions">
+            <a class="button" href="{{@deployGuide}}" rel="noopener"
+              >{{site.selfHost.guide}}</a
+            >
+            <a class="button ghost" href="{{@repo}}" rel="noopener"
+              >{{site.selfHost.source}}<svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" /></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="faq">
+        <div class="site-wrap narrow">
+          <div class="section-intro">
+            <h2>{{site.faq.title}}</h2>
+          </div>
+          <div class="faq card">
+            <details>
+              <summary>{{site.faq.q1}}</summary>
+              <p>{{site.faq.a1}}</p>
+            </details>
+            <details>
+              <summary>{{site.faq.q2}}</summary>
+              <p>{{site.faq.a2}}</p>
+            </details>
+            <details>
+              <summary>{{site.faq.q3}}</summary>
+              <p>{{site.faq.a3}}</p>
+            </details>
+            <details>
+              <summary>{{site.faq.q4}}</summary>
+              <p>{{site.faq.a4}}</p>
+            </details>
+            <details>
+              <summary>{{site.faq.q5}}</summary>
+              <p>{{site.faq.a5}}</p>
+            </details>
+            <details>
+              <summary>{{site.faq.q6}}</summary>
+              <p>{{site.faq.a6}}</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="site-wrap">
+          <div class="cta">
+            <h2>{{site.cta.title}}</h2>
+            <p>{{site.cta.body}}</p>
+            <a class="button large" href="{{@app}}/login"
+              >{{site.hero.primary}}<svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" /></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="site-wrap footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="{{@home}}" aria-label="{{common.home}}"
+            ><span class="brand-mark"
+              ><svg viewBox="0 0 32 32" aria-hidden="true">
+                <path
+                  d="M6 23 13 8l5 10 8-7-5 14H8Z"
+                  fill="currentColor"
+                /></svg></span
+            ><span>Magpie</span></a
+          >
+          <p>{{site.footer.tagline}}</p>
+          <nav class="lang" aria-label="{{common.language}}">
+            {{@languages}}
+          </nav>
+        </div>
+        <div>
+          <h2>{{site.footer.product}}</h2>
+          <ul>
+            <li><a href="#how">{{site.nav.how}}</a></li>
+            <li><a href="#features">{{site.nav.features}}</a></li>
+            <li><a href="#faq">{{site.nav.faq}}</a></li>
+            <li><a href="{{@app}}/login">{{site.nav.signIn}}</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>{{site.footer.resources}}</h2>
+          <ul>
+            <li>
+              <a href="{{@deployGuide}}" rel="noopener"
+                >{{site.footer.deploy}}</a
+              >
+            </li>
+            <li>
+              <a href="{{@adminGuide}}" rel="noopener">{{site.footer.admin}}</a>
+            </li>
+            <li>
+              <a href="{{@connectGuide}}" rel="noopener"
+                >{{site.footer.connect}}</a
+              >
+            </li>
+            <li>
+              <a href="{{@apiGuide}}" rel="noopener">{{site.footer.api}}</a>
+            </li>
+            <li>
+              <a href="{{@repo}}" rel="noopener">{{site.footer.source}}</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2>{{site.footer.legal}}</h2>
+          <ul>
+            <li><a href="{{@app}}/privacy">{{site.footer.privacy}}</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
